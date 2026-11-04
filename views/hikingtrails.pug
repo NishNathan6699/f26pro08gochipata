@@ -1,0 +1,22 @@
+
+extends layout
+
+block content
+  h1= title
+  p Available Hiking Trails
+
+  -
+    let results = [
+      {name: "Pine Ridge Trail", location: "Missouri", distance: 3.5, difficulty: "Easy"},
+      {name: "Mountain View Trail", location: "Colorado", distance: 7.2, difficulty: "Hard"},
+      {name: "Lake Forest Trail", location: "Arkansas", distance: 4.8, difficulty: "Moderate"}
+    ];
+
+  div.container-fluid
+    div.row
+      each item in results
+        div.col-sm-2.border.rounded.p-3.m-2
+          h5 #{item.name}
+          p Location: #{item.location}
+          p Distance: #{item.distance} miles
+          p Difficulty: #{item.difficulty}
