@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var hikingtrailsRouter = require('./routes/hikingtrails');
 var gridRouter = require('./routes/grid');
+var pickRouter = require('./routes/pick');
 var app = express();
 
 // view engine setup
@@ -24,6 +25,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/hikingtrails', hikingtrailsRouter);
 app.use('/grid', gridRouter);
+app.use('/selector', pickRouter);
 console.log("Hiking trails route registered");
 
 // catch 404 and forward to error handler

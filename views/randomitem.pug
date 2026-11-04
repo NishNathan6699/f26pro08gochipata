@@ -1,0 +1,24 @@
+
+extends layout
+
+block content
+  h1= title
+  p Three Random Hiking Trails
+
+  -
+    let image_names = [
+      "trail1.jpg",
+      "trail2.jpg",
+      "trail3.jpg",
+      "trail4.jpg",
+      "trail5.jpg"
+    ];
+
+  div.container-fluid
+    div.row
+      - for (let i = 0; i < 3; i++) {
+        - let choice = Math.floor(Math.random() * 5);
+        - let selected = image_names[choice];
+        div.col-sm-4.mb-3
+          img(src=`/images/${selected}`, alt=`Hiking trail ${selected}`, height="300", width="300")
+      - }
