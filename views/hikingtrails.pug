@@ -14,9 +14,14 @@ block content
 
   div.container-fluid
     div.row
-      each item in results
-        div.col-sm-2.border.rounded.p-3.m-2
+      each item, index in results
+        div.col-sm-2.border.rounded.p-3.m-2(onclick=`buy(${index})`, style="cursor:pointer")
           h5 #{item.name}
           p Location: #{item.location}
           p Distance: #{item.distance} miles
           p Difficulty: #{item.difficulty}
+
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index}`);
+    }
