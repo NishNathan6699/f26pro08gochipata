@@ -1,11 +1,8 @@
 
 var express = require('express');
+const hikingtrail_controller = require('../controllers/hikingtrail');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.render('hikingtrails', {
-    title: 'Search Results - Hiking Trails'
-  });
-});
+router.get('/', hikingtrail_controller.hikingtrail_view_all_Page);
 
 module.exports = router;
