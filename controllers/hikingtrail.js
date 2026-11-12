@@ -32,8 +32,20 @@ exports.hikingtrail_detail = function(req, res) {
 };
 
 // Create a hiking trail using POST
-exports.hikingtrail_create_post = function(req, res) {
-  res.send('NOT IMPLEMENTED: Hiking Trail create POST');
+exports.hikingtrail_create_post = async function(req, res) {
+  try {
+    const trail = new HikingTrail({
+      name: req.body.name,
+      location: req.body.location,
+      difficulty: req.body.difficulty,
+      length: req.body.length
+    });
+    const result = await trail.save();
+    res.status(201).json(result);
+  } catch (err) {
+    const status = err.name === 'ValidationError' ? 400 : 500;
+    res.status(status).json({ error: err.message });
+  }
 };
 
 // Delete a hiking trail using DELETE
