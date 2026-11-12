@@ -1,0 +1,14 @@
+.mb-3
+  label.form-label(for='name') Name
+  input#name.form-control(type='text', name='name', value=trail.name, required)
+.mb-3
+  label.form-label(for='location') Location
+  input#location.form-control(type='text', name='location', value=trail.location, required)
+.mb-3
+  label.form-label(for='difficulty') Difficulty
+  input#difficulty.form-control(type='text', name='difficulty', value=trail.difficulty, required)
+.mb-3
+  label.form-label(for='length') Length (miles)
+  input#length.form-control(type='number', name='length', value=trail.length, step='any', min='0', required)
+if trail._id
+  p.text-muted Document ID: #{trail._id}

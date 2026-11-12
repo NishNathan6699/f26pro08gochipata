@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  main.container
+    h1.mb-4= title
+    form#trail-form
+      block fields
+        fieldset(disabled)
+          include hikingtrail_fields
+      .d-flex.gap-2.mt-4
+        block control
+        a.btn.btn-outline-secondary(href='/hikingtrails') Back to trails
+      p#form-error.text-danger.mt-3(role='alert')
+    block scripts
